@@ -1,0 +1,56 @@
+<div class="form">
+    <h1>Tip calculator</h1>
+
+    <label for="sum">
+        <div class="paragraf">The amount:</div>
+        <input type="number"
+            #InputAmount
+            class="input-sum"
+            autocomplete="off"
+            placeholder="$0">
+    </label>
+
+    <div class="box">
+        <label for="quality">
+            <div class="paragraf">Quality of service</div>
+            <select id="quality" #QualitySelect>
+                <option value="20">Excellent (20%)</option>
+                <option value="15">Good (15%)</option>
+                <option value="10">Bad (10%)</option>
+            </select>
+        </label>
+
+        <label for="quantity">
+            <div class="paragraf">Number of people</div>
+            <input type="number"
+                id="quantity"
+                class="input-quantity"
+                autocomplete="off"
+                placeholder="0"
+                min="0"
+                value="0"
+                #InputNumberOfPeople>
+        </label>
+    </div>
+
+    <div class="buttons">
+        <button class="button"
+            (click)="getData(InputAmount, InputNumberOfPeople, QualitySelect)">Calculate</button>
+        <button class="button"
+            (click)="onClickThrow(InputAmount, InputNumberOfPeople, QualitySelect)">Throw off</button>
+    </div>
+
+    <div class="result">
+        <div>
+            <span>Tips:</span>
+            <span id="tip-amount">${{ tip_for_one_person }}</span>
+            <span id="tip-per-person">from each</span>
+        </div>
+
+        <div>
+            <span>Total:</span>
+            <span id="total-amount">${{ for_person }}</span>
+            <span id="total-per-person">from each</span>
+        </div>
+    </div>
+</div>
